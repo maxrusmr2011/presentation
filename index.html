@@ -1,0 +1,567 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Material UI</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <img data-src="https://i.postimg.cc/yxN4nFvf/logo-raw.png" alt="" width="250" height="150">
+          <h1>Material-UI</h1>
+          <h4>The world's most popular React UI framework.</h4>
+          <p>React components for faster and easier web development.</p>
+        </section>
+        <section>
+          <section>
+            <h5>Installation</h5>
+          </section>
+          <section>
+            As an npm package
+            <pre><code data-trim data-line-numbers>
+              npm install @material-ui/core
+            </code></pre>
+            or
+            <pre><code data-trim data-line-numbers>
+              yarn add @material-ui/core
+            </code></pre>
+          </section>
+          <section>
+            Material-UI use Roboto fonts
+            <pre><code data-trim data-line-numbers>
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+            </code></pre>
+            In order to use the font Icon components
+            <pre><code data-trim data-line-numbers>
+              <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+            </code></pre>
+          </section>
+          <section>
+            In order to use prebuilt SVG Material icons
+            <pre><code data-trim data-line-numbers>
+              npm install @material-ui/icons
+            </code></pre>
+            or
+            <pre><code data-trim data-line-numbers>
+              yarn add @material-ui/icons
+            </code></pre>
+          </section>
+          <section>
+            using Material-UI with minimal Front-end infrastructure
+            <pre><code data-trim data-line-numbers>
+              https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js
+            </code></pre>
+            or
+            <pre><code data-trim data-line-numbers>
+              https://unpkg.com/@material-ui/core@latest/umd/material-ui.production.min.js
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h3>Features</h3>
+          <ul>
+            <li>Material-UI components work in isolation (They don't rely on any global style-sheets)</li>
+            <li>using some CSS styles as attributes</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Box</h4>
+          <p>wrapper for component</p>
+          with DIV tag
+          <pre><code data-trim data-line-numbers>
+            &lt;Box&gt;
+              components...
+            &lt;/Box&gt;
+          </code></pre>
+          with other tag (for example - span)
+          <pre><code data-trim data-line-numbers>
+            &lt;Box component="span"&gt;
+              components...
+            &lt;/Box&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Container</h4>
+          <p>centers you content</p>
+          It is bounded by max-width
+          <pre><code data-trim data-line-numbers>
+            &lt;Container maxWidth="sm"&gt;
+              &lt;MyComponent /&gt;
+            &lt;/Container&gt;
+          </code></pre>
+          It has fixed width
+          <pre><code data-trim data-line-numbers>
+            &lt;Container fixed&gt;
+              &lt;MyComponent /&gt;
+            &lt;/Container&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Grid</h4>
+          <p>adaptive layout based on flexbox grid</p>
+          <pre><code data-trim data-line-numbers>
+            &lt;Grid&gt;
+              &lt;MyComponent1 /&gt;
+              ...
+            &lt;/Grid&gt;
+          </code></pre>
+          Attributes:
+          <ul>
+            <li>container, item - for flex-container or flex-item</li>
+            <li>spacing = { N } - spacing width (0 - 10)</li>
+            <li>[xs/sm/md/lg/xl] = { N } - item size ( 1 - 12 )</li>
+            <li>direction = "value" - css value: flex-direction</li>
+            <li>justify = "value" - css value: justify-content</li>
+            <li>alignItems = "value" - css value: align-items</li>
+          </ul>
+        </section>
+        <section>
+          <h4>gridlist, gritlisttile</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;GridList cellHeight={160} cols={3}&gt;
+              {list.map((item) => (
+              &lt;GridListTile /&gt;
+                <img src={item.img} />
+              &lt;/GridListTile&gt;
+              ))}
+            &lt;/GridLlst&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Attributes for hide</h4>
+          <ul>
+            <li>
+              xsUp, smUp, mdUp, lgUp, xlUp - breakpoint and more
+            </li>
+            <li>
+              xsDown, smDown, mdDown, lgDown, xlDown - breakpoint and less
+            </li>
+            <li>
+              only = 'xs', only = {['xs', 'lg']} - only breakpoints
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>button</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Button&gt;
+              Name button
+            &lt;/Button&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>variant = "contained/outlined/text"</li>
+            <li>color = "primary"</li>
+            <li>disableElevation</li>
+            <li>size = "small/medium/large"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>button group</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;ButtonGroup&gt;
+              &lt;Button&gt;Name1&lt;/Button&gt;
+              &lt;Button&gt;Name2&lt;/Button&gt;
+            &lt;/ButtonGroup&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>variant = "contained/outlined/text"</li>
+            <li>color = "primary"</li>
+            <li>disableElevation</li>
+            <li>size = "small/medium/large"</li>
+            <li>orientation = "vertical"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>fab - floating action button</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Fab&gt;
+              Name button
+            &lt;/Fab&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>variant = "extended"</li>
+            <li>color = "primary"</li>
+            <li>size = "small/medium/large"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Checkbox and FormControlLabel</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Checkbox /&gt;
+            &lt;FormControlLabel control={&lt;Checkbox /&gt;} label="label1" /&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>name = "name"</li>
+            <li>checked = {true}</li>
+            <li>color = "primary"</li>
+            <li>icon/checkedIcon = {IconComponent}</li>
+            <li>defaultChecked</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Radio, FormControlLabel, RadioGroup</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;RadioGroup name="name" value={value} &gt;
+              &lt;FormControlLabel value="value1" control={&lt;Radio /&gt;} label="label1" labelPlacement="top" &gt;
+              &lt;FormControlLabel value="value2" control={&lt;Radio /&gt;} label="label2" labelPlacement="bottom" &gt;
+            &lt;/RadioGroup&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>name = "name"</li>
+            <li>checked = {true}</li>
+            <li>color = "primary"</li>
+            <li>defaultChecked</li>
+          </ul>
+        </section>
+        <section>
+
+          <h4>select, menuitem, inputlabel, formcontrol</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;FormControl&gt;
+              &lt;InputLabel id="id1"&gt;Name&lt;/InputLabel&gt;
+              &lt;Select inputId="id1"&gt;
+                &lt;MenuItem value={value1}&gt;Label1&lt;/MenuItem&gt;
+                &lt;MenuItem value={value2}&gt;Label2&lt;/MenuItem&gt;
+              &lt;/Select&gt;
+            &lt;/FormControl&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Switch</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Switch /&gt;
+            &lt;FormControlLabel control={&lt;Switch /&gt;} label="Label1"&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>name = "name"</li>
+            <li>checked = {true}</li>
+            <li>color = "primary"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>TextField</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;TextField /&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>label = "Name"</li>
+            <li>variant = "filled/outlined"</li>
+            <li>helperText="text"</li>
+            <li>error</li>
+            <li>multiline</li>
+            <li>rows={ N }</li>
+            <li>select</li>
+            <li>value={ listItems }</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Link</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Link href="#" onClick={func} &gt;Link1&lt;/Link&gt;
+            &lt;Link href="#" onClick={func} &gt;Link2&lt;/Link&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>menu, menuitem</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Button onClick="funcOpen"&gt;Name Menu&lt;Button&gt;
+            &lt;Menu open={isOpen} &gt;
+              &lt;MenuItem onClick="funcClose"&gt;Item1&lt;/MenuItem&gt;
+              &lt;MenuItem onClick="funcClose"&gt;Item2&lt;/MenuItem&gt;
+            &lt;/Menu&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Tabs, Tab, TabPanel</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;AppBar position="static"&gt;
+              &lt;Tabs onChange="func" &gt;
+                &lt;Tab label="Name1" value="1" /&gt;
+                &lt;Tab label="Name2" value="2" /&gt;
+              &lt;/Tabs&gt;
+            &lt;/AppBar&gt;
+            &lt;TabPanel  value="1"&gt;Content1&lt;/TabPanel&gt;
+            &lt;TabPanel  value="2"&gt;Content2&lt;/TabPanel&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Breadcrumbs</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Breadcrumbs&gt;
+              &lt;Link href="/"&gt;link1&lt;/Link&gt;
+              &lt;Link href="/link2"&gt;link2&lt;/Link&gt;
+            &lt;/Breadcrumbs&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>AppBar, ToolBar</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;AppBar&gt;
+              &lt;ToolBar&gt;
+                components...
+              &lt;/ToolBar&gt;
+            &lt;/AppBar&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Card, CardActionArea, CardHeader, CardContent, CardAction, CardMedia</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Card&gt;
+              &lt;CardHeader&gt;
+                components Button...
+              &lt;/CardHeader&gt;
+              &lt;CardActionArea&gt;
+                &lt;CardMedia image="url" /&gt;
+                &lt;CardContent&gt;
+                  components Typography...
+                &lt;/CardContent&gt;
+              &lt;/CardActionArea&gt;
+              &lt;CardAction&gt;
+                components Button...
+              &lt;/CardAction&gt;
+            &lt;/Card&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetail</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;ExpansionPanel&gt;
+              &lt;ExpansionPanelSummary&gt;
+                components...
+              &lt;/ExpansionPanelSummary&gt;
+              &lt;ExpansionPanelDetail&gt;
+                components...
+              &lt;/ExpansionPanelDetail&gt;
+            &lt;/ExpansionPanel&gt;
+          </code></pre>
+        </section>
+        <section>
+
+          <h4>Paper</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Paper&gt;
+              components...
+            &lt;/Paper&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>elevation={N}</li>
+            <li>variant="outlined"</li>
+            <li>square</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Dialog, DialogTitle, DialogContent, DialogContentText, DialogAction</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Dialog&gt;
+              &lt;DialogTitle&gt;Title&lt;/DialogTitle&gt;
+              &lt;DialogContent&gt;
+                &lt;DialogContentText&gt;
+                  components...
+                &lt;/DialogContentText&gt;
+              &lt;/DialogContent&gt;
+              &lt;DialogAction&gt;
+                components Button...
+              &lt;/DialogAction&gt;
+            &lt;/Dialog&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>CircularProgress</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;CircularProgress /&gt;
+            &lt;LinearProgress /&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>variant="determinate"</li>
+            <li>value={N}</li>
+            <li>size={N}</li>
+            <li>color="primary/secondary"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Avatar, AvatarGroup</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Avatar src="url" /&gt;
+            &lt;Avatar&gt;A&lt;/Avatar&gt;
+            &lt;AvatarGroup max={N} &gt;
+              &lt;Avatar src="url1" /&gt;
+              &lt;Avatar src="url2" /&gt;
+              ...
+            &lt;/AvatarGroup&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Badge</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Badge&gt;
+              component Icon
+            &lt;/Badge&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>badgeContent={N}</li>
+            <li>color="primary/secondary"</li>
+            <li>showZero</li>
+            <li>max={N}</li>
+            <li>variant="dot"</li>
+            <li>overlap="circle"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Chip</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Chip label="text" /&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>label="text"</li>
+            <li>avatar={component Avatar}</li>
+            <li>icon={component Icon}</li>
+            <li>onDelete={func}</li>
+            <li>deleteIcon={component Icon}</li>
+            <li>color="primary"</li>
+            <li>variant="outlined"</li>
+            <li>size="small"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Icon, MaterialIcon, SvgIcon</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Icon&gt;name icon&lt;Icon&gt;
+            &lt;NameIcon /&gt;
+            &lt;SvgIcon&gt;
+              &lt;path d="..." /&gt;
+            &lt;SvgIcon&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>color="primary/secondary"</li>
+            <li>fontSize="small/large"</li>
+          </ul>
+        </section>
+        <section>
+          <h4>List, ListItem, ListItemIcon, ListItemText, ListItemLink</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;List&gt;
+              &lt;ListItem&gt;
+                &lt;ListItemIcon&gt;
+                  component Icon...
+                &lt;/ListItemIcon&gt;
+                &lt;ListItemText primary="text" /&gt;              
+              &lt;/ListItem&gt;
+            &lt;/List&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>TableContainer, Table, TableHead, TableBody, TableRow, TableCell</h4>
+          <pre><code data-trim data-line-numbers>
+          &lt;TableContainer&gt;
+            &lt;Table&gt;
+              &lt;TableHead&gt;
+                &lt;TableRow&gt;
+                  components &lt;TableCell&gt;text&lt;TableCell&gt;...
+                &lt;/TableRow&gt;
+              &lt;/TableHead&gt;
+              &lt;TableBody&gt;
+                &lt;TableRow&gt;
+                  components &lt;TableCell&gt;text&lt;TableCell&gt;...
+                &lt;/TableRow&gt;
+              &lt;/TableBody&gt;          
+            &lt;/Table&gt;
+          &lt;/TableContainer&gt;
+          </code></pre>
+        </section>
+        <section>
+          <h4>Tooltip, LightTooltip, BootstrapTooltip, HtmlTooltip</h4>
+          <pre><code data-trim data-line-numbers>
+            &lt;Tooltip title="text"&gt;
+              components...
+            &lt;/Tooltip&gt;
+          </code></pre>
+          <p>Attributes:</p>
+          <ul>
+            <li>title="text"</li>
+            <li>placement="top/bottom/left/right"</li>
+            <li>arrow</li>
+            <li>TransitionComponent={Fade/Zoom}</li>
+            <li>enterDelay={N}</li>
+            <li>leaveDelay={N}</li>
+          </ul>
+        </section>
+        <section>
+        <h4>Typography</h4>
+        <pre><code data-trim data-line-numbers>
+          &lt;Typography&gt;
+            text
+          &lt;/Typography&gt;
+        </code></pre>
+        <p>Attributes:</p>
+        <ul>
+          <li>variant="h1/h2/.."</li>
+          <li>gutterBottom</li>
+        </ul>
+        </section>
+        <section>
+          <h4>Alert, AlertTitle</h4>
+        <pre><code data-trim data-line-numbers>
+          &lt;Alert&gt;
+            text
+          &lt;/Alert&gt;
+          &lt;Alert&gt;
+            &lt;AlertTitle&gt;title\ &lt;/AlertTitle&gt;
+            text
+          &lt;/Alert&gt;
+        </code></pre>
+        <p>Attributes:</p>
+        <ul>
+          <li>severity="error/warning/info/success"</li>
+          <li>onClose={func}</li>
+          <li>icon={component Icon}</li>
+          <li>variant="outlined/filled"</li>
+        </ul>        
+        </section>
+        <section>
+          <h1>THE END</h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      });
+    </script>
+  </body>
+
+</html>
